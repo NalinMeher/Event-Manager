@@ -13,6 +13,11 @@ class Home extends StatelessWidget {
         title: const Text("Event Manager"),
       ),
       body: const DashboardBody(),
+      floatingActionButton: FloatingActionButton(
+        onPressed:() {},
+        tooltip: 'Add Event',
+        child: const Icon(Icons.add),
+      ),
       drawer: const MyDrawer(),
     );
   }

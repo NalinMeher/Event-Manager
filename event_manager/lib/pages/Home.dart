@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/BudgetRow.dart';
+import '../widgets/EventItem.dart';
 import '../widgets/MyDrawer.dart';
-import '../widgets/NoteRow.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -27,64 +26,16 @@ class DashboardBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(8.0),
-      children: const [EventItem()],
+      padding: const EdgeInsets.all(4.0),
+      children: const [
+        EventItem(),
+        EventItem(),
+        EventItem(),
+        EventItem(),
+      ],
     );
   }
 }
 
-class EventItem extends StatelessWidget {
-  const EventItem({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          left: BorderSide(color: Colors.cyan, width: 6),
-          top: BorderSide(color: Colors.cyan, width: 4),
-          bottom: BorderSide(color: Colors.cyan, width: 0.5),
-        ),
-      ),
-      child: Container(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              child: Container(
-                alignment: Alignment.topLeft,
-                child: Text("1", style: TextStyle(color: Colors.white)),
-              ),
-              padding: EdgeInsets.only(left: 4, right: 8),
-              decoration: BoxDecoration(
-                color: Colors.cyan,
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(8),
-                ),
-              ),
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const BudgetRow(),
-                  const SizedBox(height: 16),
-                  const NoteRow(),
-                  const SizedBox(height: 16),
-                  Text("Task1"),
-                  Text("Task2"),
-                  const SizedBox(height: 16),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 

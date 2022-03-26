@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/BudgetRow.dart';
 import '../widgets/MyDrawer.dart';
+import '../widgets/NoteRow.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -41,11 +42,12 @@ class EventItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: Border(
-        left: BorderSide(color: Colors.cyan, width: 6),
-        top: BorderSide(color: Colors.cyan, width: 4),
-        bottom: BorderSide(color: Colors.cyan, width: 0.5),
-      )),
+        border: Border(
+          left: BorderSide(color: Colors.cyan, width: 6),
+          top: BorderSide(color: Colors.cyan, width: 4),
+          bottom: BorderSide(color: Colors.cyan, width: 0.5),
+        ),
+      ),
       child: Container(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,9 +71,12 @@ class EventItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const BudgetRow(),
-                  Text("Note"),
+                  const SizedBox(height: 16),
+                  const NoteRow(),
+                  const SizedBox(height: 16),
                   Text("Task1"),
                   Text("Task2"),
+                  const SizedBox(height: 16),
                 ],
               ),
             )
@@ -81,3 +86,5 @@ class EventItem extends StatelessWidget {
     );
   }
 }
+
+

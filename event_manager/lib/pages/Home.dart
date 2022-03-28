@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Event Manager"),
+        title: const Text("Dashboard - Events"),
       ),
       body: const DashboardBody(),
       floatingActionButton: FloatingActionButton(

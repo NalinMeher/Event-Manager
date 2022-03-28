@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'BudgetRow.dart';
+import 'MenuRow.dart';
 import 'NoteRow.dart';
 import 'TasksList.dart';
 
@@ -56,6 +57,7 @@ class EventItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
+                  MenuRow(),
                   BudgetRow(),
                   SizedBox(height: 16),
                   NoteRow(),

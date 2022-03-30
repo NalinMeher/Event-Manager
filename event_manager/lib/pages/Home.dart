@@ -1,4 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+import '../entities/note.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -8,6 +13,31 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final List<Note> _notes = <Note>[];
+
+  Future fetchNotes() async {
+    Uri url =
+        Uri.parse("https://mocki.io/v1/d4867d8b-b5d5-4a48-a4ab-79131b5809b8");
+
+    var response = await http.get(url);
+
+    var notes = <Note>[];
+
+    if (response.statusCode == 200) {
+      var notesJson = json.decode(response.body);
+      for (var noteJson in notesJson) {
+        notes.add(Note.fromJson(noteJson));
+      }
+    }
+    return notes;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchNotes().then((value) => _notes.addAll(value));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +53,13 @@ class _HomeState extends State<Home> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Note Title",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  Text(
+                    _notes[index].name,
+                    style: const TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "Note Text",
+                    _notes[index].city,
                     style: TextStyle(color: Colors.grey.shade600),
                   ),
                 ],
@@ -36,7 +67,7 @@ class _HomeState extends State<Home> {
             ),
           );
         },
-        itemCount: 50,
+        itemCount: _notes.length,
       ),
     );
   }

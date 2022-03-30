@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
       ),
       body: const DashboardBody(),
       floatingActionButton: FloatingActionButton(
-        onPressed:() {},
+        onPressed: () {},
         tooltip: 'Add Event',
         child: const Icon(Icons.add),
       ),

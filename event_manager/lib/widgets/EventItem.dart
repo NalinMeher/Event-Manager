@@ -12,7 +12,10 @@ class EventItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return buildContainer();
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, "/item_detail"),
+      child: buildContainer(),
+    );
   }
 
   Container buildContainer() {

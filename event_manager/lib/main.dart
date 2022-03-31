@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: "Event Manager",
+    title: "Exploration!",
     home: const Home(),
     theme: ThemeData(primarySwatch: Colors.purple),
   ));
